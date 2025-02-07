@@ -6,6 +6,7 @@ sudo apt update
 sudo apt install snapd
 sudo systemctl enable --now snapd
 sudo snap install nvim --classic
+sudo apt install build-essential clang -y
 ```
 Weztem
 ```c
