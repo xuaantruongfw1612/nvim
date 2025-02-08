@@ -6,7 +6,6 @@ sudo apt update
 sudo apt install snapd
 sudo systemctl enable --now snapd
 sudo snap install nvim --classic
-sudo apt install build-essential clang -y
 ```
 Weztem
 ```c
@@ -19,4 +18,12 @@ flatpak install flathub org.wezfurlong.wezterm
 flatpak run org.wezfurlong.wezterm
 echo "alias wezterm='flatpak run org.wezfurlong.wezterm'" >> ~/.bashrc
 source ~/.bashrc
+```
+clang
+```c
+sudo apt install build-essential clang -y
+```
+clipboard
+```c
+sudo apt install xclip
 ```
