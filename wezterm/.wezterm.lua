@@ -26,8 +26,11 @@ local function pick_random_background(folder)
     end
 
     if #images > 0 then
-        return folder .. "/" .. images[math.random(#images)]
+        local random_file = folder .. "/" .. images[math.random(#images)]
+        wezterm.log_info("Selected random background: " .. random_file)
+        return random_file
     else
+        wezterm.log_error("No images found in folder: " .. folder)
         return nil
     end
 end
@@ -41,7 +44,7 @@ wezterm.on("window-created", function(window, pane)
         })
         wezterm.log_info("New bg on startup: " .. new_background)
     else
-        wezterm.log_error("Could not find bg image")
+        wezterm.log_error("Could not set bg on startup")
     end
 end)
 
