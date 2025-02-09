@@ -14,7 +14,7 @@ config.window_background_image_hsb = {
 local user_home = os.getenv("HOME")
 local background_folder = user_home .. "/.config/nvim/bg"
 
--- ngẫu nhiên một ảnh từ thư mục
+-- Ngẫu nhiên một ảnh từ thư mục
 local function pick_random_background(folder)
     local handle = io.popen('ls "' .. folder .. '"')
     local files = handle:read("*a")
@@ -32,8 +32,8 @@ local function pick_random_background(folder)
     end
 end
 
--- ảnh nền ngẫu nhiên khi WezTerm khởi động
-local function set_random_background(window)
+-- Ảnh nền ngẫu nhiên khi WezTerm khởi động
+wezterm.on("window-created", function(window, pane)
     local new_background = pick_random_background(background_folder)
     if new_background then
         window:set_config_overrides({
@@ -43,14 +43,9 @@ local function set_random_background(window)
     else
         wezterm.log_error("Could not find bg image")
     end
-end
+end)
 
--- set_random_background khi WezTerm mở
-config.on_launch = function(window, pane)
-    set_random_background(window)
-end
-
--- phím tắt
+-- Phím tắt
 config.keys = {
     {
         key = "b",
