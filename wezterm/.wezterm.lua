@@ -28,6 +28,7 @@ local function get_background_images(folder)
 end
 
 local images = get_background_images(background_folder)
+table.sort(images) -- Sắp xếp danh sách ảnh để đảm bảo thứ tự cố định
 local image_index = 1
 
 local function get_next_background()
@@ -39,10 +40,11 @@ local function get_next_background()
     return background
 end
 
-local initial_background = get_next_background()
-if initial_background then
-    config.window_background_image = initial_background
-    wezterm.log_info("Đã thiết lập hình nền ban đầu: " .. initial_background)
+-- Chọn ảnh nền ngẫu nhiên khi khởi động
+if #images > 0 then
+    math.randomseed(os.time())
+    config.window_background_image = images[math.random(#images)]
+    wezterm.log_info("Đã thiết lập hình nền ban đầu: " .. config.window_background_image)
 else
     wezterm.log_error("Không tìm thấy hình nền để thiết lập khi khởi động")
 end
@@ -66,4 +68,5 @@ config.keys = {
 }
 
 return config
+
 
