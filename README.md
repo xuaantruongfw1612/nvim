@@ -19,11 +19,15 @@ flatpak run org.wezfurlong.wezterm
 echo "alias wezterm='flatpak run org.wezfurlong.wezterm'" >> ~/.bashrc
 source ~/.bashrc
 ```
-clang
+Clang
 ```c
 sudo apt install build-essential clang -y
 ```
-clipboard
+Clipboard
 ```c
 sudo apt install xclip
+```
+Terminal - .bashrc
+```c
+export PS1='\[\033[01;31m\]\u\[\033[00m\] \[\033[01;35m\][\A]\[\033[00m\] > \[\033[01;97m\]\w\[\033[00m\] $ '
 ```
