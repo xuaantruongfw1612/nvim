@@ -35,3 +35,7 @@ Terminal - .bashrc
 ```c
 export PS1='\[\033[01;31m\]\u\[\033[00m\] \[\033[01;35m\][\A]\[\033[00m\] > \[\033[01;97m\]\w\[\033[00m\] '
 ```
+Fish
+```c
+sudo apt install fish
+```
