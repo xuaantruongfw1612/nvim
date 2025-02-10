@@ -22,6 +22,8 @@ source ~/.bashrc
 Tmux
 ```c
 sudo apt install tmux
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+chmod +x ~/.tmux/plugins/tpm/tpm
 ```
 Clang
 ```c
