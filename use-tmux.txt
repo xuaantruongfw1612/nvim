@@ -1,0 +1,33 @@
+1. Khởi động và kết thúc phiên làm việc
+tmux: Khởi tạo một phiên làm việc mới.
+exit: Đóng phiên tmux (hoặc cửa sổ) hiện tại.
+tmux new-session -s session_name: Tạo phiên làm việc mới với tên session_name.
+tmux kill-session -t session_name: Đóng một phiên tmux có tên session_name.
+tmux attach -t session_name: Kết nối lại với phiên làm việc đã tách.
+tmux rename-session -t old_name new_name
+
+2. Quản lý cửa sổ
+LeaderKey c: Tạo cửa sổ mới.
+LeaderKey n: Chuyển sang cửa sổ tiếp theo.
+LeaderKey p: Chuyển sang cửa sổ trước.
+LeaderKey w: Hiển thị danh sách các cửa sổ để chọn.
+LeaderKey &: Đóng cửa sổ hiện tại.
+LeaderKey ,: Đổi tên cửa sổ hiện tại.
+
+3. Quản lý ngăn (Pane)
+LeaderKey %: Chia cửa sổ theo chiều dọc.
+LeaderKey ": Chia cửa sổ theo chiều ngang.
+LeaderKey o: Chuyển qua lại giữa các ngăn trong cửa sổ.
+LeaderKey x: Đóng ngăn hiện tại.
+LeaderKey {: Di chuyển ngăn sang trái.
+LeaderKey }: Di chuyển ngăn sang phải.
+LeaderKey z: Phóng to ngăn hiện tại.
+
+4. Quản lý phiên làm việc
+LeaderKey s: Hiển thị danh sách các phiên làm việc.
+LeaderKey d: Tách khỏi phiên tmux hiện tại (để lại phiên hoạt động ngầm).
+
+5. Tùy chỉnh và thông tin
+LeaderKey t: Hiển thị thời gian hiện tại.
+LeaderKey ?: Hiển thị các phím tắt và lệnh trong tmux.
+LeaderKey :: Mở cửa sổ lệnh để nhập lệnh tmux thủ công.
