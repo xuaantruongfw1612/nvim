@@ -19,6 +19,10 @@ echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
 echo "alias wezterm='flatpak run org.wezfurlong.wezterm'" >> ~/.bashrc
 source ~/.bashrc
 ```
+Tmux
+```c
+sudo apt install tmux
+```
 Clang
 ```c
 sudo apt install build-essential clang -y
