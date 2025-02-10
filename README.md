@@ -33,9 +33,20 @@ sudo apt install xclip
 ```
 Terminal - .bashrc
 ```c
-export PS1='\[\033[01;31m\]\u\[\033[00m\] \[\033[01;35m\][\A]\[\033[00m\] > \[\033[01;97m\]\w\[\033[00m\] '
+export PS1='\e[31mTRU\e[0m\e[35mONG\e[0m > ${PWD##*/} '
 ```
 Fish
 ```c
 sudo apt install fish
+nvim .config/fish/functions/fish_prompt.fish
+# In fish_prompt.fish
+function fish_prompt
+    set_color white
+    echo -n (whoami)
+    set_color normal
+    echo -n " > "
+set -g fish_color_error red --bold
+set -g fish_color_command white --bold
+echo -n " "(basename (pwd)) 
+end
 ```
