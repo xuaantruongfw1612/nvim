@@ -21,10 +21,12 @@ return {
                 end)
                 
                 -- Sau khi thời gian kết thúc, tắt âm thanh
-                vim.defer_fn(function()
-                    vim.fn.system("pkill paplay")  -- Tắt tất cả tiến trình paplay
-                    print("Sound stopped after time is up")
-                end, 15000)  -- Tạm dừng 15 giây (thời gian để chắc chắn âm thanh đã kết thúc)
+               local timer = vim.defer_fn(function()
+                    if play_process then
+                        vim.fn.system("pkill paplay")
+                        print("stop")
+                    end
+                end,1000 * 60 * 25)
             end
 
             require("notify").setup({
