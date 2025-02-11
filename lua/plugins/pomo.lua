@@ -10,8 +10,10 @@ return {
         config = function()
             local play_sound = function()
                 local home_dir = os.getenv("HOME")
-                local sound_path = home_dir .. "/.config/nvim/break.mp3"
-                vim.loop.spawn("afplay", {
+                local sound_path = home_dir .. "/.config/nvim/break.wav"  -- đổi sang .wav nếu sử dụng paplay
+
+                -- Sử dụng paplay (PulseAudio) để phát âm thanh
+                vim.loop.spawn("paplay", {
                     args = { sound_path },
                     detached = true,
                 }, function()
@@ -19,8 +21,8 @@ return {
                 end)
 
                 vim.defer_fn(function()
-                    vim.fn.system("pkill afplay")
-                    print("Sound stopped after 15 seconds")
+                    -- Không cần phải kết thúc khi dùng paplay vì nó tự động dừng
+                    print("Sound played")
                 end, 15000)
             end
             require("notify").setup({
