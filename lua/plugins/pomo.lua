@@ -56,3 +56,5 @@ return {
         },
     },
 }
+
+vim.api.nvim_set_keymap('n', '<F2>', ':TimerSession<CR>, {noremap = true, silent = true})
