@@ -7,56 +7,36 @@ return {
     dependencies = {
         -- Optional, but highly recommended if you want to use the "Default" timer
         "rcarriga/nvim-notify",
-        config = function()
-            local play_sound = function()
-                local home_dir = os.getenv("HOME")
-                local sound_path = home_dir .. "/.config/nvim/break.wav"  -- đổi sang .wav nếu sử dụng paplay
-
-                -- Sử dụng paplay (PulseAudio) để phát âm thanh
-                vim.loop.spawn("paplay", {
-                    args = { sound_path },
-                    detached = true,
-                }, function()
-                    print("Sound finished playing")
-                end)
-
-                vim.defer_fn(function()
-                    -- Không cần phải kết thúc khi dùng paplay vì nó tự động dừng
-                    print("Sound played")
-                end, 15000)
+        {
+            "nvim-lualine/lualine.nvim",
+            config = function()
+                require("lualine").setup()
             end
-            require("notify").setup({
-                background_colour = "#1e1e2e",
-                on_open = function(notification)
-                    if notification then
-                        play_sound()
-                    end
-                end,
-            })
-            require("lualine").setup {
-                sections = {
-                    lualine_x = {
-                        function()
-                            local ok, pomo = pcall(require, "pomo")
-                            if not ok then
-                                return ""
-                            end
-
-                            local timer = pomo.get_first_to_finish()
-                            if timer == nil then
-                                return ""
-                            end
-
-                            return "󰄉 " .. tostring(timer)
-                        end,
-                        "encoding",
-                        "fileformat",
-                        "filetype",
-                    },
-                },
-            }
-        end,
+        }
     },
+    
+    config = function()
+        local play_sound = function()
+            local home_dir = os.getenv("HOME")
+            local sound_path = home_dir .. "/.config/nvim/break.mp3"
+            vim.loop.spawn("paplay", {
+                args = { sound_path },
+                detached = true,
+            }, function()
+                print("Sound finished playing")
+            end)
+
+            vim.defer_fn(function()
+                -- Không cần pkill khi dùng paplay vì nó tự động dừng
+                print("Sound played")
+            end, 15000)
+        end
+
+        require("notify").setup({
+            background_colour = "#282c34",
+        })
+    end,
+
     opts = {
         work_time = 25,
         break_time = 5,
