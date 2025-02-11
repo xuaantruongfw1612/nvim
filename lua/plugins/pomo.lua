@@ -37,10 +37,6 @@ return {
         })
     end,
 
-            require("notify").setup({
-                background_colour = "#282c34",
-              })
-        end,
     opts = {
         work_time = 25,
         break_time = 5,
@@ -58,6 +54,5 @@ return {
                 { name = "Long Break",  duration = "10m" },
             },
         },
-
-     },
+    },
 }
