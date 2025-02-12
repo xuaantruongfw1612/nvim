@@ -3,7 +3,11 @@ return {
   dependencies = { "folke/tokyonight.nvim" }, -- Đảm bảo Lualine load sau khi theme có sẵn
   config = function()
     -- Cài đặt theme tokyonight
-    require("tokyonight").setup({})
+    require("tokyonight").setup({
+            style = "moon",
+            transparent = true,
+            terminal_colors = true,
+        })
     vim.cmd("colorscheme tokyonight")
 
     -- Cấu hình Lualine
