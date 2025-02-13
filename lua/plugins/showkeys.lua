@@ -55,7 +55,7 @@ local function update_key_display(key)
         width = win_width,
         height = 1, -- Chỉ có 1 dòng
         row = vim.o.lines - 2, -- Hiển thị ở dòng cuối cùng
-        col = 0, -- Cách mép trái
+        col = 10, -- Cách mép trái
         style = "minimal",
         border = "none"
     }

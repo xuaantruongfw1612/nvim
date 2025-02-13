@@ -1,3 +1,4 @@
+local M = {}
 local api = vim.api
 local loop = vim.loop
 
@@ -113,3 +114,4 @@ end
 api.nvim_create_user_command('PomoStop', stop_pomodoro, {})
 api.nvim_create_user_command('PomoReset', reset_pomodoro, {})
 
+return M
