@@ -37,7 +37,7 @@ local function update_key_display(key)
     create_floating_win() -- Hiện cửa sổ nếu chưa có
 
     table.insert(key_history, map_special_key(key)) -- Ghi lại phím bấm
-    if #key_history > 50 then -- Giới hạn số phím hiển thị
+    if #key_history > 20 then -- Giới hạn số phím hiển thị
         table.remove(key_history, 1)
     end
     local key_str = "" .. table.concat(key_history, "")
@@ -55,7 +55,7 @@ local function update_key_display(key)
         width = win_width,
         height = 1, -- Chỉ có 1 dòng
         row = vim.o.lines - 2, -- Hiển thị ở dòng cuối cùng
-        col = 5, -- Cách mép trái
+        col = 0, -- Cách mép trái
         style = "minimal",
         border = "none"
     }
