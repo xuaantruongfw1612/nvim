@@ -4,7 +4,7 @@ local loop = vim.loop
 
 -- Định nghĩa các session với nhiều mốc thời gian
 local sessions = {
-    Start1 = {
+    s1 = {
         work_break_cycles = { {30 * 60, 7 * 60},
                               {30 * 60, 7 * 60},
                               {25 * 60, 5 * 60},
@@ -12,7 +12,7 @@ local sessions = {
         },
         current_cycle = 1
     },
-    Start2 = {         
+    s2 = {         
         work_break_cycles = { {0.1 * 60, 0.1 * 60},
                               {0.2 * 60, 0.2 * 60},
                               {0.3 * 60, 0.3 * 60}
@@ -111,7 +111,7 @@ for session_name, _ in pairs(sessions) do
     end, {})
 end
 
-api.nvim_create_user_command('PomoStop', stop_pomodoro, {})
-api.nvim_create_user_command('PomoReset', reset_pomodoro, {})
+api.nvim_create_user_command('Pomostop', stop_pomodoro, {})
+api.nvim_create_user_command('Pomoreset', reset_pomodoro, {})
 
 return M
