@@ -42,7 +42,6 @@ Fish
 sudo apt install fish
 nvim .config/fish/functions/fish_prompt.fish
 # In fish_prompt.fish
-# In fish_prompt.fish
 function fish_prompt
     set_color red
     echo -n (whoami)
