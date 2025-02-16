@@ -1,3 +1,4 @@
+local M = {}
 local api = vim.api
 local buf, win
 local key_history = {}
@@ -80,9 +81,5 @@ vim.on_key(function(key)
     update_key_display(key)
 end, api.nvim_create_namespace("key_logger"))
 
-return {
-    "folke/which-key.nvim",
-    config =function()
-    require("which-key").setup({})
-    end
-}
+return M
+

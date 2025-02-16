@@ -2,6 +2,8 @@ local M = {}
 
 -- print code
 vim.keymap.set('n', '<leader>t', function()
+  vim.cmd('w')
+
   local filetype = vim.bo.filetype
   local cmd
 

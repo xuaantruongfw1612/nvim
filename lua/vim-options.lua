@@ -17,5 +17,3 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- paste over highlight word
 vim.keymap.set("x", "<leader>p", '"_dP')
 vim.opt.colorcolumn = "90"
-
-
