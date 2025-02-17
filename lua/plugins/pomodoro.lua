@@ -2,7 +2,6 @@ local M = {}
 local api = vim.api
 local loop = vim.loop
 
--- Định nghĩa các session với nhiều mốc thời gian
 local sessions = {
     s1 = {
         work_break_cycles = { {30 * 60, 7 * 60},
