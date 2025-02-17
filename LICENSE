@@ -1,0 +1,28 @@
+nvimlua
+📌 nvimlua – Neovim configuration by Xuan Truong. Optimized for performance, usability, and extensibility.
+
+License
+This repository is licensed under the MIT License, meaning you are free to use, modify, and distribute it with proper attribution to Xuan Truong.
+
+Features
+Plugin Management: Powered by lazy.nvim for efficient plugin handling.
+LSP & DAP: Integrated Language Server Protocol and Debug Adapter Protocol for better development experience.
+Code Formatting: Supports stylua, prettier, black, and more.
+Custom Keybindings: Optimized mappings for faster workflow.
+Performance & Aesthetics: Minimal yet powerful, with a clean and modern UI.
+Installation
+Clone the repository:
+```c
+git clone https://github.com/xuantruong1612/nvimlua ~/.config/nvim
+```
+Install required dependencies.
+Launch Neovim and let lazy.nvim handle the rest.
+Contributions
+Feel free to fork, modify, or open a pull request. All contributions are welcome!
+
+Author
+Xuan Truong
+🔗 GitHub
+
+Disclaimer
+This configuration is provided as is, without any warranty. Use at your own risk.
