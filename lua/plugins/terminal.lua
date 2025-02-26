@@ -9,7 +9,7 @@ vim.keymap.set("n", "<leader>t", function()
 if filetype == "c" then
     vim.cmd("vertical rightbelow vsplit")
     vim.cmd("vertical resize 50")
-    cmd = 'term gcc -o "%:r" "%" && ./"%:r"'
+cmd = 'term gcc -o "%:r" "%" -lm -lpthread -ldl -lrt && ./"%:r"'
 elseif filetype == "cpp" then
     vim.cmd("vertical rightbelow vsplit")
     vim.cmd("vertical resize 50")
