@@ -34,5 +34,5 @@ require("help-floating")
 require("floating-term")
 require("vim-helpers")
 require("plugins.lualine")
-
+require("plugins.pomodoro")
 ---------------------------------------------------------
