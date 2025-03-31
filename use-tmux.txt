@@ -31,3 +31,8 @@ LeaderKey d: Tách khỏi phiên tmux hiện tại (để lại phiên hoạt đ
 LeaderKey t: Hiển thị thời gian hiện tại.
 LeaderKey ?: Hiển thị các phím tắt và lệnh trong tmux.
 LeaderKey :: Mở cửa sổ lệnh để nhập lệnh tmux thủ công.
+
+6. Copy - Paste
+Trong tmux: - LeaderKey [ để vào vim, y để Copy, q để thoát.
+            - LeaderKey ] để Paste.
+Ngoài tmux vào tmux: Ctrl + Shift + v.
