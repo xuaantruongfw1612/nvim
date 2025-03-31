@@ -15,13 +15,17 @@ LeaderKey &: Đóng cửa sổ hiện tại.
 LeaderKey ,: Đổi tên cửa sổ hiện tại.
 
 3. Quản lý ngăn (Pane)
-LeaderKey %: Chia cửa sổ theo chiều dọc.
-LeaderKey ": Chia cửa sổ theo chiều ngang.
+LeaderKey \: Chia cửa sổ theo chiều dọc.
+LeaderKey -: Chia cửa sổ theo chiều ngang.
 LeaderKey o: Chuyển qua lại giữa các ngăn trong cửa sổ.
 LeaderKey x: Đóng ngăn hiện tại.
-LeaderKey {: Di chuyển ngăn sang trái.
-LeaderKey }: Di chuyển ngăn sang phải.
-LeaderKey z: Phóng to ngăn hiện tại.
+LeaderKey m: Phóng to ngăn hiện tại.
+
+Di chuyển giữa các pane:
+Ctrl h: Di chuyển ngăn sang trái.
+Ctrl l: Di chuyển ngăn sang phải.
+Ctrl j: Di chuyển ngăn sang xuống.
+Ctrl k: Di chuyển ngăn sang lên.
 
 4. Quản lý phiên làm việc
 LeaderKey s: Hiển thị danh sách các phiên làm việc.
