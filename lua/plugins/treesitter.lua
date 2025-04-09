@@ -11,8 +11,8 @@ return {
 				"c",
 				"lua",
 				"vim",
-        "python",
-        "java"
+                "python",
+                "java"
 			},
 			sync_install = false,
 			highlight = { enable = true },

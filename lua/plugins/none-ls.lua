@@ -1,26 +1,29 @@
 return {
   "nvimtools/none-ls.nvim",
+  dependencies = { "nvim-lua/plenary.nvim" },  -- Đảm bảo Plenary đã cài đặt
   config = function()
     local null_ls = require("null-ls")
+
     null_ls.setup({
+      debug = false,  -- Bật debug nếu cần
       sources = {
-      null_ls.builtins.formatting.stylua.with({
-          extra_args = { "--indent-width", "4" }, -- Lua: 4 spaces
+        null_ls.builtins.formatting.stylua.with({
+          extra_args = { "--indent-width", "4" },
         }),
         null_ls.builtins.formatting.clang_format.with({
-          extra_args = { "-style={IndentWidth: 4}" }, -- C/C++
+          extra_args = { "-style={IndentWidth: 4}" },
         }),
         null_ls.builtins.formatting.prettier.with({
-          extra_args = { "--tab-width", "4", "--use-tabs", "false" }, -- JS, HTML, CSS
+          extra_args = { "--tab-width", "4", "--use-tabs", "false" },
         }),
-        null_ls.builtins.formatting.isort, -- Python (mặc định theo PEP8)
-        null_ls.builtins.diagnostics.mypy, -- Python type checking
-        --null_ls.builtins.formatting.black, -- python
-        --null_ls.builtins.diagnostics.ruff, -- python modern
-        --null_ls.builtins.formatting.gofumpt,
-        --null_ls.builtins.code_actions.impl,
+        null_ls.builtins.formatting.isort,
+        null_ls.builtins.diagnostics.mypy,
       },
     })
-    vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+
+    -- Kiểm tra nếu LSP chưa bật thì không map phím
+    if vim.lsp.buf ~= nil then
+      vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+    end
   end,
 }

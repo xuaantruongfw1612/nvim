@@ -17,3 +17,4 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- paste over highlight word
 vim.keymap.set("x", "<leader>p", '"_dP')
 --vim.opt.colorcolumn = "90"
+vim.keymap.set("n", "<leader>m", [[:%s/\r//g | w<CR>]], { desc = "Xóa ^M và lưu file" })
