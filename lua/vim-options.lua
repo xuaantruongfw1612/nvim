@@ -18,3 +18,10 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("x", "<leader>p", '"_dP')
 --vim.opt.colorcolumn = "90"
 vim.keymap.set("n", "<leader>m", [[:%s/\r//g | w<CR>]], { desc = "Xóa ^M và lưu file" })
+-- P: Dán từ clipboard hệ thống vào nvim (paste ngoài vào)
+vim.keymap.set("n", "P", '"+p') -- Normal mode
+vim.keymap.set("v", "P", '"+p') -- Visual mode
+
+-- Y: Sao chép từ nvim ra clipboard hệ thống (copy ra ngoài)
+vim.keymap.set("n", "Y", '"+y$') -- Copy từ con trỏ đến hết dòng
+vim.keymap.set("v", "Y", '"+y') -- Copy đoạn đang chọn
