@@ -8,6 +8,7 @@ tmux rename-session -t old_name new_name
 
 2. Quản lý cửa sổ
 LeaderKey c: Tạo cửa sổ mới.
+LeaderKey &: Xóa windows hiện tại.
 LeaderKey n: Chuyển sang cửa sổ tiếp theo.
 LeaderKey p: Chuyển sang cửa sổ trước.
 LeaderKey w: Hiển thị danh sách các cửa sổ để chọn.
