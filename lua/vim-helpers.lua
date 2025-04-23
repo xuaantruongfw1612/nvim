@@ -38,26 +38,4 @@ vim.keymap.set("n", "<leader>cp", function()
 	print("Copied: " .. filepath)
 end, { desc = "Copy absolute path to clipboard" })
 
--- Mở file hiện tại bằng trình duyệt (mặc định là Microsoft Edge)
-vim.keymap.set("n", "<leader>ob", function()
-    local file_path = vim.fn.expand("%:p") -- Lấy đường dẫn tuyệt đối Linux
-    if file_path ~= "" then
-        local cmd
-        -- Nếu đang chạy trong WSL
-        if vim.fn.has("wsl") == 1 then
-            -- Chuyển đường dẫn Linux sang Windows path (dùng wslpath)
-            local windows_path = vim.fn.system({ "wslpath", "-w", file_path }):gsub("\n", "")
-            -- Mở bằng Microsoft Edge (cài sẵn trên Windows)
-            cmd = 'cmd.exe /C start microsoft-edge:"' .. windows_path .. '"'
-        elseif vim.fn.has("mac") == 1 then
-            -- macOS
-            cmd = "open -a 'Microsoft Edge' '" .. file_path .. "'"
-        else
-            -- Linux thuần
-            cmd = "xdg-open '" .. file_path .. "'"
-        end
-        os.execute(cmd .. " &")
-    else
-        print("No file to open")
-    end
-end, { desc = "Open current file in Edge" })
+
