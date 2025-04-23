@@ -17,7 +17,7 @@ vim.cmd("set cursorline") -- Làm nổi bật dòng hiện tại
 vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "white" })
 -- Màu chữ của các dòng dưới dòng hiện tại
 vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#ead84e" })
- -- Cho phép sử dụng clipboard hệ thống
+-- Cho phép sử dụng clipboard hệ thống
 vim.cmd("set clipboard=unnamed")
 -- Tìm kiếm
 vim.opt.hlsearch = true -- Làm nổi bật các kết quả tìm kiếm
@@ -30,8 +30,10 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- Di chuyển đoạn văn bản �
 -- Dán vào vị trí đã chọn mà không ghi đè lên lựa chọn
 vim.keymap.set("x", "<leader>p", '"_dP')
 
--- Xóa dấu ^M (carriage return) và lưu file
-vim.keymap.set("n", "<leader>m", [[:%s/\r//g | w<CR>]], { desc = "Xóa ^M và lưu file" })
+-- Xóa ký tự ^M (carriage return - \r) và giữ nguyên vị trí con trỏ sau khi lưu
+vim.keymap.set("n", "<leader>m", [[:let save_pos = getpos(".") | %s/\r//g | call setpos(".", save_pos) | w<CR>]], {
+  desc = "Xóa ^M và lưu file (giữ vị trí con trỏ)"
+})
 
 -- P: Dán từ clipboard hệ thống vào nvim (paste ngoài vào)
 vim.keymap.set("n", "P", '"+p') -- Dán ở normal mode
