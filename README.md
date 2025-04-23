@@ -52,7 +52,3 @@ set -g fish_color_command white --bold
 echo -n " "(basename (pwd))" "
 end
 ```
-Glow
-```c
-sudo snap install glow
-```
