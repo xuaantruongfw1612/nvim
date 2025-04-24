@@ -36,6 +36,8 @@ sudo apt install xclip
 Terminal - .bashrc
 ```c
 export PS1='\e[31mTRU\e[0m\e[35mONG\e[0m > ${PWD##*/} '
+alias tmux='tmux -f ~/.config/nvim/tmux/tmux.conf'
+export PATH=$HOME/.local/bin:$PATH
 ```
 Fish
 ```c
