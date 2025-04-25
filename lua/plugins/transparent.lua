@@ -32,7 +32,7 @@ return {
 		vim.cmd("highlight Lualine guifg=NONE")
 		-- Xóa màu nền của cửa sổ không focus (NormalNC)
 		vim.cmd("highlight NormalNC guibg=NONE")
---		 Xóa màu nền của CursorLine (dòng hiện tại)
+		--Xóa màu nền của CursorLine (dòng hiện tại)
 		vim.cmd("highlight CursorLine guibg=NONE")
 	end,
 }
