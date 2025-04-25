@@ -15,7 +15,7 @@ LeaderKey w: Hiển thị danh sách các cửa sổ để chọn.
 LeaderKey &: Đóng cửa sổ hiện tại.
 LeaderKey ,: Đổi tên cửa sổ hiện tại.
 
-3. Quản lý ngăn (Pane)
+3. Quản lý ngăn (Panes)
 LeaderKey \: Chia cửa sổ theo chiều dọc.
 LeaderKey -: Chia cửa sổ theo chiều ngang.
 LeaderKey o: Chuyển qua lại giữa các ngăn trong cửa sổ.
