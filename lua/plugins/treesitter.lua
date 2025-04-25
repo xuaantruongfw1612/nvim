@@ -2,24 +2,21 @@ return {
 	-- Plugin chính: nvim-treesitter - hỗ trợ highlight, indent, folding,... theo cấu trúc ngôn ngữ
 	"nvim-treesitter/nvim-treesitter",
 
-	-- Chạy lệnh :TSUpdate sau khi cài đặt để cập nhật parser
 	build = ":TSUpdate",
 
 	config = function()
 		local config = require("nvim-treesitter.configs")
 
 		config.setup({
-			-- Tự động cài parser khi mở file nếu chưa có
 			auto_install = true,
 
-			-- Danh sách ngôn ngữ bạn muốn Treesitter hỗ trợ
 			ensure_installed = {
-				"c", -- Ngôn ngữ C
-				"lua", -- Lua (Neovim config)
-				"vim", -- Vim script
-				"python", -- Python
-				"java", -- Java
-				"javascript", -- JavaScript ✔️ (mới thêm)
+				"c",
+				"lua",
+				"vim",
+				"python",
+				"java",
+				"javascript",
 				"bash",
 				"json",
 				"html",
@@ -27,18 +24,23 @@ return {
 				"markdown",
 			},
 
-			-- Không cài đồng bộ, tiết kiệm thời gian khi khởi động
 			sync_install = false,
 
-			-- Bật highlight code dựa trên cây cú pháp
 			highlight = {
 				enable = true,
+				additional_vim_regex_highlighting = false,
 			},
-
-			-- Bật tự động indent code
 			indent = {
 				enable = true,
 			},
 		})
+		-- Tùy chỉnh màu sắc highlight
+		-- Comment: màu xám (#808080)
+		vim.api.nvim_set_hl(0, "@comment", { fg = "#808080" })
+		-- Biến: màu xanh lá (#00FF00)
+		vim.api.nvim_set_hl(0, "@variable", { fg = "#00FF00" })
+		vim.api.nvim_set_hl(0, "@variable.builtin", { fg = "#00FF00" })
+		-- Từ khóa (return, function, local,...): màu trắng (#FFFFFF)
+		vim.api.nvim_set_hl(0, "@keyword", { fg = "#FFFFFF" })
 	end,
 }
