@@ -38,6 +38,8 @@ Terminal - .bashrc
 export PS1='\e[31mTRU\e[0m\e[35mONG\e[0m > ${PWD##*/} '
 alias tmux='tmux -f ~/.config/nvim/tmux/tmux.conf'
 export PATH=$HOME/.local/bin:$PATH
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+source ~/.bashrc
 ```
 Fish
 ```c
