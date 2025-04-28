@@ -1,11 +1,8 @@
 ## Nvim Lua !!!
 Nvim New
 ```c
-snap version
-sudo apt update
-sudo apt install snapd
-sudo systemctl enable --now snapd
-sudo snap install nvim --classic
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 ```
 Weztem
 ```c
@@ -28,6 +25,7 @@ chmod +x ~/.tmux/plugins/tpm/tpm
 Clang
 ```c
 sudo apt install build-essential clang -y
+sudo apt install unzip
 ```
 Clipboard
 ```c
