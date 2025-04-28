@@ -6,6 +6,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 ```
 Weztem
 ```c
+# nên wezterm bên ngoài windows, nên k cần tải lắm
 sudo apt install flatpak
 sudo apt install gnome-software-plugin-flatpak
 flatpak install flathub org.wezfurlong.wezterm
@@ -29,6 +30,7 @@ sudo apt install unzip
 ```
 Clipboard
 ```c
+# không cần cũng được
 sudo apt install xclip
 ```
 Terminal - .bashrc
@@ -40,6 +42,7 @@ export PATH=$HOME/.local/bin:$PATH
 Fish
 ```c
 sudo apt install fish
+
 nvim .config/fish/functions/fish_prompt.fish
 # In fish_prompt.fish
 function fish_prompt
@@ -51,8 +54,4 @@ set -g fish_color_error red --bold
 set -g fish_color_command white --bold
 echo -n " "(basename (pwd))" "
 end
-```
-Nushell
-```c
-choco install nushell
 ```
