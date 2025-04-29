@@ -12,6 +12,7 @@ chmod +x ~/.tmux/plugins/tpm/tpm
 ```
 Clang
 ```c
+sudo apt install clang-format
 sudo apt install build-essential clang -y
 sudo apt install unzip
 ```

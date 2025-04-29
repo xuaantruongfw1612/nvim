@@ -4,10 +4,10 @@ return {
 	branch = "v3.x", -- Sử dụng nhánh v3.x (phiên bản mới nhất hiện tại)
 
 	dependencies = {
-		"nvim-lua/plenary.nvim",           -- Thư viện tiện ích hỗ trợ Lua cho nhiều plugin
-		"nvim-tree/nvim-web-devicons",     -- Thêm icon đẹp vào file explorer (không bắt buộc nhưng nên có)
-		"MunifTanjim/nui.nvim",            -- UI components cho plugin sử dụng
-		-- "3rd/image.nvim", -- Hỗ trợ hiển thị hình ảnh trong cửa sổ preview (tuỳ chọn, cần bật nếu bạn cần tính năng này)
+		"nvim-lua/plenary.nvim", -- Thư viện tiện ích hỗ trợ Lua cho nhiều plugin
+		"nvim-tree/nvim-web-devicons", -- Thêm icon đẹp vào file explorer (không bắt buộc nhưng nên có)
+		"MunifTanjim/nui.nvim", -- UI components cho plugin sử dụng
+		--"3rd/image.nvim", -- Hỗ trợ hiển thị hình ảnh trong cửa sổ preview
 	},
 
 	config = function()

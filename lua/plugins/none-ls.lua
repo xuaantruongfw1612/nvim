@@ -37,7 +37,16 @@ return {
 		-- Kiểm tra xem LSP đã được kích hoạt chưa, nếu có thì map phím để format
 		if vim.lsp.buf ~= nil then
 			-- Gán phím <leader>gf để format code bằng LSP (sử dụng formatter từ none-ls)
-			vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+			vim.keymap.set("n", "<leader>gf", function()
+				vim.lsp.buf.format({
+
+					filter = function(client)
+						return client.name == "null-ls"
+					end,
+
+					timeout_ms = 3000,
+				})
+			end, { desc = "Format code bằng null-ls" })
 		end
 	end,
 }

@@ -37,9 +37,9 @@ return {
 		-- Tùy chỉnh màu sắc highlight
 		-- Comment: màu xám (#808080)
 		vim.api.nvim_set_hl(0, "@comment", { fg = "#808080" })
-		-- Biến: màu xanh lá (#00FF00)
-		vim.api.nvim_set_hl(0, "@variable", { fg = "#00FF00" })
-		vim.api.nvim_set_hl(0, "@variable.builtin", { fg = "#00FF00" })
+		-- Biến: màu  (#00FF00)
+		vim.api.nvim_set_hl(0, "@variable", { fg = "#F5F5F5" })
+		vim.api.nvim_set_hl(0, "@variable.builtin", { fg = "#F5F5F5" })
 		-- Từ khóa (return, function, local,...): màu trắng (#FFFFFF)
 		vim.api.nvim_set_hl(0, "@keyword", { fg = "#FFFFFF" })
 	end,
