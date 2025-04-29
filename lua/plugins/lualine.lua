@@ -29,33 +29,12 @@ return {
 					lualine_a = {
 						"mode", -- Chế độ sẽ thay đổi màu sắc tự động khi bạn chuyển chế độ
 					},
-					lualine_b = {
-						"branch",
-						{
-							"diagnostics",
-							sources = { "nvim_diagnostic" },
-							sections = { "error", "warn", "info", "hint" }, -- lỗi, cảnh báo, thông tin, gợi ý
-							symbols = { error = " ", warn = " ", info = " ", hint = " " },
-							colored = true, -- màu
-							update_in_insert = false, -- Không cập nhật thông báo khi insert mode
-							always_visible = true, -- Luôn hiển thị thông báo dù không có lỗi hay cảnh báo nào
-						},
-					},
 					lualine_c = {
 						{
 							"filename",
 							file_status = true, -- Chế độ lưu, readonly
 							path = 1, -- Đường dẫn ngắn gọn
 						},
-					},
-					lualine_x = {
-						function()
-							local ok, wttr = pcall(require, "wttr")
-							return ok and wttr.text or "Weather Unavailable"
-						end,
-						"encoding",
-						"fileformat",
-						"filetype",
 					},
 					lualine_y = { "progress" }, -- Tiến trình cuộn file
 					lualine_z = { "location" }, -- Vị trí dòng/cột

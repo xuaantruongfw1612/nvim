@@ -166,4 +166,9 @@ end
 api.nvim_create_user_command("Pomostop", stop_pomodoro, {})
 api.nvim_create_user_command("Pomoreset", reset_pomodoro, {})
 
+vim.keymap.set('n', '<leader>p1', ':Pomos1<CR>', { noremap = true, silent = true, desc = "Start Pomodoro Session 1" })
+vim.api.nvim_set_keymap('n', '<leader>p2', ':Pomos2<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>ps', ':Pomostop<CR>', { noremap = true, silent = true, desc = "Stop Pomodoro" })
+vim.keymap.set('n', '<leader>pr', ':Pomoreset<CR>', { noremap = true, silent = true, desc = "Reset Pomodoro" })
+
 return M
