@@ -1,3 +1,4 @@
 bg/
 
 # git rm --cached <file>
+# git rm -r --cached <folder/>
