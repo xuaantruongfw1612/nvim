@@ -30,24 +30,20 @@ return {
 						"mode", -- Chế độ sẽ thay đổi màu sắc tự động khi bạn chuyển chế độ
 					},
 					lualine_b = {
-						"branch",
-						"diff",
+                        "branch",
+                        "diff",
 						{
 							"diagnostics",
 							sources = { "nvim_diagnostic" },
-							sections = { "error", "warn" },
-							symbols = { error = " ", warn = " " },
+							sections = { "error", "warn", "info", "hint" },
+							symbols = { error = " ", warn = " ", info = " ", hint = " " },
 							colored = true,
-							update_in_insert = false,
-							always_visible = false,
+							update_in_insert = true,
+							always_visible = true,
 						},
 					},
 					lualine_c = {
-						{
-							"filename",
-							file_status = true,
-							path = 1,
-						},
+						"filename",
 					},
 					lualine_y = { "progress" }, -- Tiến trình cuộn file
 					lualine_z = { "location" }, -- Vị trí dòng/cột
@@ -74,5 +70,4 @@ return {
 		end,
 	},
 }
-
 -- │        
