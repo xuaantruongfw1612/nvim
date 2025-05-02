@@ -27,24 +27,27 @@ return {
 				},
 				sections = {
 					lualine_a = {
-						"mode", -- Chế độ sẽ thay đổi màu sắc tự động khi bạn chuyển chế độ
+						"mode", -- Tự chuyển màu theo mode 
 					},
 					lualine_b = {
-                        "branch",
-                        "diff",
+						"branch",
+						"diff",
 						{
 							"diagnostics",
-							sources = { "nvim_diagnostic" },
+							sources = { "nvim_diagnostic" }, -- lấy từ (LSP)
 							sections = { "error", "warn", "info", "hint" },
-							symbols = { error = " ", warn = " ", info = " ", hint = " " },
-							colored = true,
-							update_in_insert = true,
-							always_visible = true,
+							symbols = {
+								error = " ", -- Lỗi
+								warn = " ", -- Cảnh báo
+								info = " ", -- Thông tin
+								hint = " ", -- Gợi ý
+							},
+							colored = true, -- Mỗi loại sẽ có màu riêng
+							update_in_insert = true, -- Cập nhật khi đang trong Insert
+							always_visible = false, -- Luôn hiển thị
 						},
 					},
-					lualine_c = {
-						"filename",
-					},
+					lualine_c = { "filename" },
 					lualine_y = { "progress" }, -- Tiến trình cuộn file
 					lualine_z = { "location" }, -- Vị trí dòng/cột
 				},
