@@ -1,13 +1,15 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.enable_kitty_keyboard = false
+wezterm.on("gui-startup", function()
+	wezterm.log_info("CONFIG BY XUAN TRUONG")
+    wezterm.log_info("CTRL + SHIFT + b: Đổi Background")
+    wezterm.log_info("https://www.facebook.com/serayeuem")
+end)
 
-config.font_size = 12.5
-config.line_height = 1.2
-
+-- Tùy chỉnh giao diện
 config.enable_tab_bar = false
-config.initial_cols = 105
+config.initial_cols = 100
 config.initial_rows = 25
 config.window_background_image_hsb = {
 	brightness = 0.05,
@@ -15,16 +17,20 @@ config.window_background_image_hsb = {
 	saturation = 0.7,
 }
 
+-- Lấy thư mục hình nền
 local user_home = os.getenv("USERPROFILE")
 local background_folder = user_home .. "\\wezterm\\bg"
 
+-- Lấy danh sách ảnh nền
 local function get_background_images(folder)
 	local handle = io.popen('dir /b "' .. folder .. '"')
 	if not handle then
 		return {}
 	end
+
 	local files = handle:read("*a")
 	handle:close()
+
 	local images = {}
 	for file in string.gmatch(files, "[^\r\n]+") do
 		table.insert(images, folder .. "\\" .. file)
@@ -32,6 +38,12 @@ local function get_background_images(folder)
 	return images
 end
 
+-- Lấy tên file từ đường dẫn
+local function get_filename(path)
+	return string.match(path, "[^\\]+$")
+end
+
+-- Danh sách và ảnh nền ban đầu
 local images = get_background_images(background_folder)
 table.sort(images)
 local image_index = 1
@@ -45,57 +57,36 @@ local function get_next_background()
 	return background
 end
 
--- NOTES
-local function notes_filename()
-	local date = wezterm.strftime("%Hh_%d%m%Y")
-	return string.format("nvim C:\\Users\\%s\\Documents\\git\\scratch\\notes\\note_%s.md", os.getenv("USERNAME"), date)
-end
-
--- Set background lúc khởi động
+-- Thiết lập ảnh nền ngẫu nhiên khi khởi động
 if #images > 0 then
 	math.randomseed(os.time())
 	config.window_background_image = images[math.random(#images)]
-	wezterm.log_info("Đã thiết lập hình nền ban đầu: " .. config.window_background_image)
 else
 	wezterm.log_error("Không tìm thấy hình nền để thiết lập khi khởi động")
 end
 
-config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 1000 }
-
+-- Phím Ctrl+Shift+B để đổi hình nền
 config.keys = {
 	{
 		key = "b",
-		mods = "LEADER",
+		mods = "CTRL|SHIFT",
 		action = wezterm.action_callback(function(window, pane)
 			local new_background = get_next_background()
 			if new_background then
 				window:set_config_overrides({
 					window_background_image = new_background,
 				})
-				wezterm.log_info("Hình nền mới: " .. new_background)
+				wezterm.log_info("XUAN TRUONG - Background: - " .. get_filename(new_background))
 			else
 				wezterm.log_error("Không thể tìm thấy hình nền")
 			end
 		end),
 	},
-
-	{ key = "j", mods = "LEADER", action = wezterm.action.AdjustPaneSize({ "Down", 5 }) },
-	{ key = "k", mods = "LEADER", action = wezterm.action.AdjustPaneSize({ "Up", 5 }) },
-	{ key = "h", mods = "LEADER", action = wezterm.action.AdjustPaneSize({ "Left", 5 }) },
-	{ key = "l", mods = "LEADER", action = wezterm.action.AdjustPaneSize({ "Right", 5 }) },
-	{ key = "\\", mods = "LEADER", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
-	{ key = "-", mods = "LEADER", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ key = "x", mods = "LEADER", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
-
-	-- Gọi file Notes
-	{
-		key = "e",
-		mods = "CTRL",
-		action = wezterm.action.SplitPane({
-			direction = "Right",
-			command = { args = { "cmd.exe", "/C", notes_filename() } },
-		}),
-	},
 }
+
+-- Font và shell mặc định
+config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "Light" })
+config.font_size = 14.0
+config.default_prog = { "powershell.exe", "-NoLogo" }
 
 return config
