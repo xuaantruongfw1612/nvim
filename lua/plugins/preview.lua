@@ -1,5 +1,4 @@
 -- Preview markdown
-
 return {
 	{
 		"iamcco/markdown-preview.nvim",
