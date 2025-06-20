@@ -14,12 +14,12 @@ return {
 			vim.keymap.set("n", "<leader>fb", builtin.buffers, {}) -- Danh sách buffer đang mở
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, {}) -- Tìm kiếm trong tài liệu của Neovim
 
-			-- 🧩 Các chức năng Git tích hợp với Telescope
-			vim.keymap.set("n", "<leader>gs", builtin.git_status, {}) -- Giống `git status`, hiển thị file thay đổi
-			vim.keymap.set("n", "<leader>gc", builtin.git_commits, {}) -- Danh sách tất cả commit trong repo
-			vim.keymap.set("n", "<leader>gfc", builtin.git_bcommits, {}) -- Danh sách commit của file hiện tại
-			vim.keymap.set("n", "<leader>gb", builtin.git_branches, {}) -- Danh sách branch, có thể checkout
-			vim.keymap.set("n", "<leader>gS", builtin.git_stash, {}) -- Danh sách stash nếu có dùng
+			-- -- 🧩 Các chức năng Git tích hợp với Telescope
+			-- vim.keymap.set("n", "<leader>gs", builtin.git_status, {}) -- Giống `git status`, hiển thị file thay đổi
+			-- vim.keymap.set("n", "<leader>gc", builtin.git_commits, {}) -- Danh sách tất cả commit trong repo
+			-- vim.keymap.set("n", "<leader>gfc", builtin.git_bcommits, {}) -- Danh sách commit của file hiện tại
+			-- vim.keymap.set("n", "<leader>gb", builtin.git_branches, {}) -- Danh sách branch, có thể checkout
+			-- vim.keymap.set("n", "<leader>gS", builtin.git_stash, {}) -- Danh sách stash nếu có dùng
 		end,
 	},
 
@@ -47,14 +47,6 @@ return {
 				},
 			})
 			require("telescope").load_extension("ui-select")
-		end,
-	},
-
-	-- (Tuỳ chọn) Hiển thị dấu git (+/-/~) bên lề file
-	{
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("gitsigns").setup()
 		end,
 	},
 }
