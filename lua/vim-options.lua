@@ -32,7 +32,7 @@ vim.keymap.set("x", "<leader>p", '"_dP')
 
 -- Xóa ký tự ^M (carriage return - \r) và giữ nguyên vị trí con trỏ sau khi lưu
 vim.keymap.set("n", "<leader>m", [[:let save_pos = getpos(".") | %s/\r//g | call setpos(".", save_pos) | w<CR>]], {
-    desc = "Xóa ^M và lưu file (giữ vị trí con trỏ)",
+    desc = "Delete ^M, save file",
 })
 
 -- P: Dán từ clipboard hệ thống vào nvim (paste ngoài vào)

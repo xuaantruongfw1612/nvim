@@ -24,8 +24,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 print("--- Xuân Trường ---")
 vim.opt.rtp:prepend(lazypath)
-
----------------------------------------------------------
+-------------------------------------------------------
 
 -- install plugins and options
 require("vim-options")
@@ -33,6 +32,5 @@ require("lazy").setup("plugins")
 require("help-floating")
 require("floating-term")
 require("vim-helpers")
-require("plugins.lualine")
-require("plugins.pomodoro")
+require("keymaps.keymaps")
 ---------------------------------------------------------
