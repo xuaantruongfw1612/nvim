@@ -32,5 +32,4 @@ require("lazy").setup("plugins")
 require("help-floating")
 require("floating-term")
 require("vim-helpers")
-require("keymaps.keymaps")
 ---------------------------------------------------------

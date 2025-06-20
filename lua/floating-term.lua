@@ -26,7 +26,7 @@ local function create_floating_window(opts)
 	-- Cấu hình cho cửa sổ nổi (floating window)
 	local config = {
 		relative = "editor", -- Cửa sổ nổi căn cứ vào cửa sổ editor hiện tại
-		width = width, -- Chiều rộng cửa sổ
+		width = width,
 		height = height, -- Chiều cao cửa sổ
 		row = row, -- Vị trí hàng (căn giữa)
 		col = col, -- Vị trí cột (căn giữa)
