@@ -62,3 +62,9 @@ echo 'export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share:/home/t
 echo "alias wezterm='flatpak run org.wezfurlong.wezterm'" >> ~/.bashrc
 source ~/.bashrc
 ```
+
+Markdown-preview
+```c
+cd ~/.local/share/nvim/lazy/markdown-preview.nvim/app
+npm install
+```

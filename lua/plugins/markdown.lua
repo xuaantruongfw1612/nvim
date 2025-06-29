@@ -6,5 +6,3 @@ return {
         "echasnovski/mini.nvim" 
     },
 }
-
-
