@@ -63,4 +63,4 @@ end
 vim.api.nvim_create_user_command("FTerm", toggle_term, {})
 
 -- <leader>T toggle_term trong chế độ normal và terminal
-vim.keymap.set({ "n", "t" }, "<leader>T", toggle_term, { desc = "terminal new)" })
+vim.keymap.set({ "n", "t" }, "<leader>T", toggle_term, { desc = "terminal new" })
