@@ -22,6 +22,7 @@ return {
 				"html",
 				"css",
 				"markdown",
+                "rust"
 			},
 
 			sync_install = false,

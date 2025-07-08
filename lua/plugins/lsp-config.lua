@@ -3,51 +3,58 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			local lspconfig = require("lspconfig") -- Load module lspconfig để cấu hình server LSP
+			local lspconfig = require("lspconfig")
 
-			-- Cấu hình cho ngôn ngữ Lua
+			-- Cấu hình cho Lua
 			lspconfig.lua_ls.setup({
 				settings = {
 					Lua = {
 						diagnostics = {
-							globals = { "vim" }, -- Khai báo biến "vim" là global (tránh báo lỗi khi dùng trong config Neovim)
+							globals = { "vim" },
 						},
 					},
 				},
 			})
 
-			-- Cấu hình cho ngôn ngữ C/C++ sử dụng clangd
+			-- Cấu hình cho C/C++
 			lspconfig.clangd.setup({})
 
-			-- Cấu hình cho Python sử dụng pyright
-			--      lspconfig.pyright.setup({})
-
-			-- Cấu hình cho Java sử dụng jdtls
+			-- Cấu hình cho Java
 			lspconfig.jdtls.setup({})
+
+			-- ✅ Cấu hình cho Rust
+			lspconfig.rust_analyzer.setup({
+				settings = {
+					["rust-analyzer"] = {
+						checkOnSave = {
+							command = "clippy",
+						},
+					},
+				},
+			})
 		end,
 	},
 
-	-- Plugin Mason: công cụ quản lý LSP server, DAP, Linters, Formatters
+	-- Plugin quản lý LSP server, formatter, linter,...
 	{
 		"williamboman/mason.nvim",
-		build = ":MasonUpdate", -- Cập nhật danh sách server khi plugin được build
+		build = ":MasonUpdate",
 		config = function()
-			require("mason").setup() -- Khởi tạo Mason
+			require("mason").setup()
 		end,
 	},
 
-	-- Plugin kết nối giữa Mason và LSPConfig: tự động cấu hình LSP server được cài qua Mason
+	-- Kết nối Mason và LSPConfig
 	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
 				ensure_installed = {
-					"lua_ls", -- LSP cho Lua
-					"clangd", -- LSP cho C/C++
-					--"pyright", -- LSP cho Python
-					"jdtls", -- LSP cho Java
+					"lua_ls",
+					"clangd",
+					"jdtls",
 				},
-				automatic_installation = true, -- Tự động cài đặt các LSP chưa có
+				automatic_installation = true,
 			})
 		end,
 	},
