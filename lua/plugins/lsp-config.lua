@@ -1,61 +1,127 @@
 return {
-	-- Plugin cấu hình ngôn ngữ LSP chính
+	{
+		"williamboman/mason.nvim",
+		-- version = "v1.11.0",
+		config = function()
+			require("mason").setup()
+		end,
+	},
+	{
+		"williamboman/mason-lspconfig.nvim",
+		lazy = false,
+		opts = {
+			auto_install = true,
+			-- manually install packages that do not exist in this list please
+			ensure_installed = { "lua_ls", "clangd", "jdtls", "pyright", "html", "cssls", "ts_ls" },
+		},
+	},
 	{
 		"neovim/nvim-lspconfig",
+		lazy = false,
 		config = function()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
-
-			-- Cấu hình cho Lua
+			-- lua
 			lspconfig.lua_ls.setup({
+				capabilities = capabilities,
 				settings = {
 					Lua = {
 						diagnostics = {
 							globals = { "vim" },
 						},
-					},
-				},
-			})
-
-			-- Cấu hình cho C/C++
-			lspconfig.clangd.setup({})
-
-			-- Cấu hình cho Java
-			lspconfig.jdtls.setup({})
-
-			-- ✅ Cấu hình cho Rust
-			lspconfig.rust_analyzer.setup({
-				settings = {
-					["rust-analyzer"] = {
-						checkOnSave = {
-							command = "clippy",
+						workspace = {
+							library = vim.api.nvim_get_runtime_file("", true),
+							checkThirdParty = false,
+						},
+						telemetry = {
+							enable = false,
 						},
 					},
 				},
 			})
-		end,
-	},
-
-	-- Plugin quản lý LSP server, formatter, linter,...
-	{
-		"williamboman/mason.nvim",
-		build = ":MasonUpdate",
-		config = function()
-			require("mason").setup()
-		end,
-	},
-
-	-- Kết nối Mason và LSPConfig
-	{
-		"williamboman/mason-lspconfig.nvim",
-		config = function()
-			require("mason-lspconfig").setup({
-				ensure_installed = {
-					"lua_ls",
-					"clangd",
-					"jdtls",
-				},
-				automatic_installation = true,
+			-- typescript
+			lspconfig.ts_ls.setup({
+				capabilities = capabilities,
 			})
+			-- Js
+			lspconfig.eslint.setup({
+				capabilities = capabilities,
+			})
+			-- -- zig
+			-- lspconfig.zls.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			-- -- yaml
+			-- lspconfig.yamlls.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			-- -- tailwindcss
+			-- lspconfig.tailwindcss.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			-- -- golang
+			-- lspconfig.gopls.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			--java
+			-- lspconfig.jdtls.setup({
+			--     settings = {
+			--         java = {
+			--             configuration = {
+			--                 runtimes = {
+			--                     {
+			--                         name = "JavaSE-23",
+			--                         path = "/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home",
+			--                         default = true,
+			--                     },
+			--                 },
+			--             },
+			--         },
+			--     },
+			-- })
+			-- -- nix
+			-- lspconfig.rnix.setup({ capabilities = capabilities })
+			-- -- protocol buffer
+			-- lspconfig.buf_ls.setup({ capabilities = capabilities })
+			-- -- docker compose
+			-- lspconfig.docker_compose_language_service.setup({ capabilities = capabilities })
+			-- -- svelte
+			-- lspconfig.svelte.setup({ capabilities = capabilities })
+			-- vim.api.nvim_create_autocmd("FileType", {
+			-- 	pattern = "proto",
+			-- 	callback = function()
+			-- 		lspconfig.buf_language_server.setup({
+			-- 			capabilities = capabilities,
+			-- 		})
+			-- 	end,
+			-- })
+			-- python
+			lspconfig.pylsp.setup({ capabilities = capabilities })
+			-- bash
+			lspconfig.bashls.setup({ capabilities = capabilities })
+			-- lsp kepmap setting
+			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover" })
+			vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Goto Implementation" })
+			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
+			vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "Goto Declaration" })
+			vim.keymap.set("n", "gr", vim.lsp.buf.references, { desc = "References" })
+			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename full project" })
+			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+			-- working with go confirmed, don't know about other, keep changing as necessary
+
+			vim.keymap.set("n", "<leader>fm", function()
+				local filetype = vim.bo.filetype
+				local symbols_map = {
+					python = "function",
+					javascript = "function",
+					typescript = "function",
+					java = "class",
+					lua = "function",
+					go = { "method", "struct", "interface" },
+				}
+				local symbols = symbols_map[filetype] or "function"
+				require("fzf-lua").lsp_document_symbols({ symbols = symbols })
+			end, {})
 		end,
 	},
 }

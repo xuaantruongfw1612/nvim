@@ -10,6 +10,7 @@ return {
 			-- 🔍 Các keymap tìm kiếm thường dùng
 			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "terminal new" })
 			vim.keymap.set("n", "<leader>pf", builtin.git_files, { desc = "tracked by Git" })
+            -- dowload ripgrep = sudo apt install ripgrep
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "keywords all projects" })
 			vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "buffer is open" })
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "search for documents Neovim" })
@@ -18,7 +19,7 @@ return {
 			vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "git status" })
 			vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "repo commit" })
 			vim.keymap.set("n", "<leader>gfc", builtin.git_bcommits, { desc = "file commit" })
-			-- vim.keymap.set("n", "<leader>gb", builtin.git_branches, {desc = "check branch"})
+			vim.keymap.set("n", "<leader>gb", builtin.git_branches, {desc = "check branch"})
 			-- vim.keymap.set("n", "<leader>gS", builtin.git_stash, {desc = "stash list"})
 		end,
 	},

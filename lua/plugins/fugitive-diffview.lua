@@ -4,7 +4,7 @@ return {
 		cmd = { "Git", "G", "Gdiffsplit", "Gvdiffsplit", "Gwrite", "Gread", "Glog" },
 		keys = {
 			{ "<leader>g.", "<cmd>Git<CR>", desc = "Fugitive status" },
-			{ "<leader>gd", "<cmd>Gdiffsplit<CR>", desc = "Git diff current file" },
+		--	{ "<leader>gd", "<cmd>Gdiffsplit<CR>", desc = "Git diff current file" },
 			{ "<leader>gb", "<cmd>Git blame<CR>", desc = "Git blame" },
 		},
 	},
