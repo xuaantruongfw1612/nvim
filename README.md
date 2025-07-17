@@ -32,6 +32,8 @@ source ~/.bashrc
 Npm - nodejs
 ```c
 sudo apt install npm
+sudo apt install nodejs
+sudo npm install -g live-server    # web
 ```
 Fish
 ```c
