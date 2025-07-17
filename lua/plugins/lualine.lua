@@ -27,7 +27,7 @@ return {
 				},
 				sections = {
 					lualine_a = {
-						"mode", -- Tự chuyển màu theo mode 
+						"mode", -- Tự chuyển màu theo mode
 					},
 					lualine_b = {
 						"branch",
@@ -47,7 +47,7 @@ return {
 							always_visible = false, -- Luôn hiển thị
 						},
 					},
-					lualine_c = { "filename" },
+					lualine_c = { { "filename", path = 1 } },
 					lualine_y = { "progress" }, -- Tiến trình cuộn file
 					lualine_z = { "location" }, -- Vị trí dòng/cột
 				},
