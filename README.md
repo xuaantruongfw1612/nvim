@@ -70,3 +70,29 @@ Markdown-preview
 cd ~/.local/share/nvim/lazy/markdown-preview.nvim/app
 npm install
 ```
+---------------------------
+Linux
+# Cập nhật hệ thống + cài curl
+sudo apt update
+sudo apt install -y curl build-essential libfuse2
+
+# Cài Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Thêm Homebrew vào PATH
+echo >> ~/.bashrc
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> ~/.bashrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Cài WezTerm qua Homebrew (sẽ tải AppImage)
+brew tap wez/wezterm-linuxbrew
+brew install wezterm
+
+# Cho AppImage quyền chạy
+chmod +x ~/.cache/Homebrew/downloads/*WezTerm-*.AppImage
+
+# Tạo symlink để gọi "wezterm" ở mọi nơi
+sudo ln -sf ~/.cache/Homebrew/downloads/*WezTerm-*.AppImage /usr/local/bin/wezterm
+
+# Chạy thử
+wezterm
