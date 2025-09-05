@@ -6,7 +6,7 @@ return {
 		ft = { "markdown" },
 		config = function()
 			vim.g.mkdp_auto_start = 0
-			vim.g.mkdp_browser = "chrome" -- hoặc "microsoft-edge:"
+			vim.g.mkdp_browser = "firefox" -- hoặc "microsoft-edge, chrome"
 		end,
 	},
 }
