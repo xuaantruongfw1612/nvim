@@ -1,3 +1,4 @@
+-- sudo npm install -g perttier để format code
 return {
 	"nvimtools/none-ls.nvim",
 
