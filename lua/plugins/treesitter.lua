@@ -45,13 +45,13 @@ return {
 			},
 		})
 
-		-- ⚙️ Thiết lập folding với treesitter
+		-- Thiết lập folding với treesitter
 		vim.opt.foldmethod = "expr"
 		vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 		vim.opt.foldenable = true
 		vim.opt.foldlevel = 99 -- Mở hết khi vào file
 
-		-- 🎨 Tùy chỉnh highlight
+		-- Tùy chỉnh highlight
 		vim.api.nvim_set_hl(0, "@comment", { fg = "#808080" })           -- Comment xám
 		vim.api.nvim_set_hl(0, "@variable", { fg = "#F5F5F5" })          -- Biến thường
 		vim.api.nvim_set_hl(0, "@variable.builtin", { fg = "#F5F5F5" })  -- Biến có sẵn

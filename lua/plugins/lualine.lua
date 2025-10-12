@@ -1,5 +1,5 @@
 return {
-	-- 🌙 Giao diện (theme) Tokyonight với style "moon"
+	-- Giao diện (theme) Tokyonight với style "moon"
 	{
 		"folke/tokyonight.nvim",
 		priority = 1000, -- Load đầu tiên để đảm bảo theme áp dụng sớm
@@ -13,7 +13,7 @@ return {
 		end,
 	},
 
-	-- ⏱ Thanh trạng thái lualine với màu theme tokyonight
+	-- Thanh trạng thái lualine với màu theme tokyonight
 	{
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "folke/tokyonight.nvim" }, -- Dùng theme cùng tokyonight
@@ -55,7 +55,7 @@ return {
 		end,
 	},
 
-	-- 🔲 Plugin làm trong suốt toàn bộ UI (kể cả lualine)
+	-- Plugin làm trong suốt toàn bộ UI (kể cả lualine)
 	{
 		"xiyaowong/transparent.nvim",
 		lazy = false, -- Load ngay lập tức

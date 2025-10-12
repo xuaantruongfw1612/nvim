@@ -54,7 +54,7 @@ return {
 				return git_root
 			end
 
-			-- 🔍 Các keymap tìm kiếm thường dùng
+			-- Các keymap tìm kiếm thường dùng
 			vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "terminal new" })
 			vim.keymap.set("n", "<leader>pf", builtin.git_files, { desc = "tracked by Git" })
 			-- download ripgrep = sudo apt install ripgrep
@@ -62,14 +62,14 @@ return {
 			vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "buffer is open" })
 			vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "search for documents Neovim" })
 
-			-- 🧩 Các chức năng Git tích hợp với Telescope
+			-- Các chức năng Git tích hợp với Telescope
 			vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "git status" })
 			vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "repo commit" })
 			vim.keymap.set("n", "<leader>gfc", builtin.git_bcommits, { desc = "file commit" })
 			vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "check branch" })
 			-- vim.keymap.set("n", "<leader>gS", builtin.git_stash, { desc = "stash list" })
 
-			-- 🔎 Tìm chính xác từ dưới con trỏ với --word-regexp
+			-- Tìm chính xác từ dưới con trỏ với --word-regexp
 			vim.keymap.set("n", "<leader>fw", function()
 				builtin.live_grep({
 					prompt_title = "Exact Word Search",
@@ -80,7 +80,7 @@ return {
 				})
 			end, { desc = "Find exact word under cursor" })
 
-			-- 🚀 TÌM FILE TRONG GIT PROJECT (CHỈ HOẠT ĐỘNG TRONG GIT REPO)
+			-- TÌM FILE TRONG GIT PROJECT (CHỈ HOẠT ĐỘNG TRONG GIT REPO)
 			vim.keymap.set("n", "<leader>gp", function()
 				local git_root = get_git_root()
 				if not git_root then
@@ -95,7 +95,7 @@ return {
 				})
 			end, { desc = "Find files in Git project (including hidden)" })
 
-			-- 🚀 TÌM TỪ TRONG GIT PROJECT (CHỈ HOẠT ĐỘNG TRONG GIT REPO)
+			-- TÌM TỪ TRONG GIT PROJECT (CHỈ HOẠT ĐỘNG TRONG GIT REPO)
 			vim.keymap.set("n", "<leader>gw", function()
 				local git_root = get_git_root()
 				if not git_root then
