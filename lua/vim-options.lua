@@ -40,3 +40,6 @@ vim.keymap.set("v", "Y", '"+y') -- Sao chép đoạn văn bản đang chọn
 
 -- b: Mở Preview
 vim.keymap.set("n", "<leader>b", "<cmd>MarkdownPreview<CR>", { desc = "Preview Markdown in browser" })
+
+-- Live-server reload khi lưu
+vim.opt.backupcopy = "yes"
