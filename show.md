@@ -24,7 +24,7 @@ func main(){
 
 ```
 
-[link](github.com/xuantruong1612) 
+[link](github.com/xuaantruongfw1612) 
 
 ![image](/home/truong/.config/nvim/bg/nami.jpg)
 
