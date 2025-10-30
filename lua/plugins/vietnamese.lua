@@ -4,6 +4,6 @@ return {
     config = function()
         require("vietnamese").setup()
     end,
-    vim.api.nvim_set_keymap("n", "la", "<Esc>:VietnameseToggle<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>la", "<Esc>:VietnameseToggle<CR>", { noremap = true, silent = true })
 }
 

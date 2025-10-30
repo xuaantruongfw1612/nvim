@@ -1,26 +1,24 @@
 return {
-	-- Giao diện (theme) Tokyonight với style "moon"
 	{
 		"folke/tokyonight.nvim",
-		priority = 1000, -- Load đầu tiên để đảm bảo theme áp dụng sớm
+		priority = 1000,
 		config = function()
 			require("tokyonight").setup({
-				style = "moon", -- Chọn kiểu "moon", có thể đổi sang "storm", "night", v.v.
-				transparent = true, -- Làm nền trong suốt
-				terminal_colors = true, -- Đồng bộ màu terminal trong Neovim
+				style = "moon", -- "moon", "storm", "night", ...
+				transparent = true,
+				terminal_colors = true,
 			})
-			vim.cmd("colorscheme tokyonight") -- Áp dụng giao diện
+			vim.cmd("colorscheme tokyonight")
 		end,
 	},
 
-	-- Thanh trạng thái lualine với màu theme tokyonight
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = { "folke/tokyonight.nvim" }, -- Dùng theme cùng tokyonight
+		dependencies = { "folke/tokyonight.nvim" }, 
 		config = function()
 			require("lualine").setup({
 				options = {
-					theme = "tokyonight", -- Lấy màu từ theme
+					theme = "tokyonight", 
 					icons_enabled = true, -- icon
 					component_separators = { left = "│", right = "│" },
 					section_separators = { left = "", right = "" },
@@ -58,16 +56,16 @@ return {
 	-- Plugin làm trong suốt toàn bộ UI (kể cả lualine)
 	{
 		"xiyaowong/transparent.nvim",
-		lazy = false, -- Load ngay lập tức
-		priority = 999, -- Load sau theme (vì priority thấp hơn 1000)
+		lazy = false,
+		priority = 999, 
 		config = function()
 			require("transparent").setup({
-				enable = true, -- Bật chế độ trong suốt
+				enable = true,
 				extra_groups = {
 					"Normal",
 					"NormalNC",
 					"EndOfBuffer",
-					"Lualine", -- Các group được làm trong
+					"Lualine",
 				},
 			})
 		end,

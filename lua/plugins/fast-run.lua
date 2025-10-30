@@ -2,7 +2,7 @@ return {
 	"xuaantruongfw1612/fast-run",
 	config = function()
 		require("fast-run").setup({
-			enable = { "c", "python", "cpp", "java", "html" },
+			enable = { "c", "python", "cpp", "java", "html", "css" },
 		})
 	end,
 }
