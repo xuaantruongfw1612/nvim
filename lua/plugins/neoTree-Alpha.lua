@@ -4,7 +4,7 @@ return {
 		branch = "v3.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons", -- hỗ trợ hiển thị icon file đẹp cho neo-tree
+			"nvim-tree/nvim-web-devicons",
 			"MunifTanjim/nui.nvim",
 		},
 		config = function()
@@ -29,10 +29,10 @@ return {
 
 	{
 		"goolord/alpha-nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" }, -- icon file of alpha 
+		dependencies = { "nvim-tree/nvim-web-devicons" },  
 		event = "VimEnter",
 		config = function()
-			require("config.ui")  -- module cấu hình màn hình chào (dashboard) dành riêng cho alpha-nvim
+			require("config.ui")
 		end,
 	},
 }

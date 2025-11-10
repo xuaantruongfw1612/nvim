@@ -10,7 +10,6 @@ return {
 		config.setup({
 			auto_install = true,
 
-			-- Ngôn ngữ cần parser
 			ensure_installed = {
 				"c",
 				"lua",
@@ -45,7 +44,6 @@ return {
 			},
 		})
 
-		-- Thiết lập folding với treesitter
 		vim.opt.foldmethod = "expr"
 		vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 		vim.opt.foldenable = true
